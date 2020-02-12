@@ -16,16 +16,14 @@
 </head>
 
 <body>
-  <div id="chat-example">
-    <div id="chat-window">
+
       <ul id="messages"></ul>
       <form action="">
         <input id="n" type="text" placeholder="Name"/>
         <hr>
         <input id="m" autocomplete="off" placeholder="Message"/><button>Send</button>
       </form>
-    </div>
-  </div>
+
     <script src="/socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
@@ -33,9 +31,8 @@
     var socket = io();
     $('form').submit(function(e){
       e.preventDefault(); // prevents page reloading
-      socket.emit('chat message', $('#m').val(), $('#n').val());
+      socket.emit('chat message', $('#m').val());
       $('#m').val('');
-      $('#n').val('');
       return false;
     });
 
